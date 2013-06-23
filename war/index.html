@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Hello Cloud EndPoint</title>
+
+</head>
+
+<body>
+	<button onClick="save()">List Instances</button>
+
+<script type="text/javascript">
+
+function loadGapi() {
+	gapi.client.load('resDef', 'v1', null);
+}
+
+function save() {
+  var req = gapi.client.resDef.find({'id' :'15002'});
+  req.execute(function(data) {
+	  console.log('Le code est : '+ data.code);
+	  console.log('La description est : '+ data.description);
+  });
+}
+
+</script>
+
+<script src="https://apis.google.com/js/client.js?onload=loadGapi">
+{ "client": {},
+  "googleapis.config": {
+    root: "https://4planetmaxime.appspot.com/_ah/api"
+  }
+}
+</script>
+</body>
+</html>

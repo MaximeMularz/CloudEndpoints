@@ -1,0 +1,201 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://4planetmaxime.appspot.com/_ah/api",
+  "name" : "resDef",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://4planetmaxime.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "resDef.find" : {
+      "path" : "find/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.find",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "resDef.resDef.auth" : {
+      "path" : "auth",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.auth",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "resDef.resdef.add" : {
+      "path" : "add",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.add",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "resDef.resdef.save" : {
+      "path" : "save/{nom}",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.save",
+      "request" : {
+        "parameters" : {
+          "nom" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "resDef.resdef.remove" : {
+      "path" : "remove/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.remove",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "resDef.resdef.bye" : {
+      "path" : "foos",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.getByeBye",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "resDef.listResDef" : {
+      "path" : "listResDef",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ "932902048751.apps.googleusercontent.com" ],
+      "rosyMethod" : "spi.ResDefV1.list",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "ResDef" : {
+        "id" : "ResDef",
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ResDefCollection" : {
+        "id" : "ResDefCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "ResDef"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "spi.ResDefV1.find" : {
+        "response" : {
+          "$ref" : "ResDef"
+        }
+      },
+      "spi.ResDefV1.auth" : {
+        "response" : {
+          "$ref" : "ResDef"
+        }
+      },
+      "spi.ResDefV1.add" : {
+        "request" : {
+          "$ref" : "ResDef"
+        }
+      },
+      "spi.ResDefV1.save" : {
+      },
+      "spi.ResDefV1.remove" : {
+      },
+      "spi.ResDefV1.getByeBye" : {
+      },
+      "spi.ResDefV1.list" : {
+        "response" : {
+          "$ref" : "ResDefCollection"
+        }
+      }
+    }
+  }
+}
